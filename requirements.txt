@@ -1,0 +1,11 @@
+numpy
+pandas
+matplotlib
+selenium
+folium
+tqdm
+sklearn
+seaborn
+catboost
+lightgbm
+xgboost
