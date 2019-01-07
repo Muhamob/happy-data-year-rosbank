@@ -41,7 +41,7 @@ def facilities(x_coords, *args, **params):
 
 def cities(X):
     #X['city'] = X[~X.address_rus.isnull()].address_rus.apply(lambda x: x.split(',')[2]) 
-    cities = pd.read_csv('data/cities.csv')
+    cities = pd.read_csv(path+'/data/working/cities.csv')
     cities = cities[['Город', 'Население', 'Широта', 'Долгота']]
     cities['Население'] = cities.apply(lambda s: to_float(s['Население']), axis = 1)
     cities.columns = ['city', 'city_people', 'city_lat', 'city_long']
