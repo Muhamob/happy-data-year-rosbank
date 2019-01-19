@@ -12,10 +12,10 @@ class AveragingModel(BaseEstimator, ClassifierMixin):
     def __init__(self, models, weights=None, pretrained=False):
         super().__init__()
         self.models = models
-        self.weights = weights if not weights is None else np.ones(len(models))*1./len(models)
+        self.weights = weights/np.sum(weights) if not weights is None else np.ones(len(models))*1./len(models)
         self.trained = pretrained
 
-
+    
     def fit(self, X, y):
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
         for model in self.models:
